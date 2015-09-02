@@ -1,4 +1,4 @@
-# kemi
+# kemi [![Build Status](https://travis-ci.org/gernest/kemi.svg)](https://travis-ci.org/gernest/kemi)[![Coverage Status](https://coveralls.io/repos/gernest/kemi/badge.svg?branch=master&service=github)](https://coveralls.io/github/gernest/kemi?branch=master)[![GoDoc](https://godoc.org/github.com/gernest/kemi?status.svg)](https://godoc.org/github.com/gernest/kemi)
 
 kemi helps you win at unpacking archive files with Go(a.k.a golang). Kemi supports .tar, .tar.gz
 .zip out of the box, with option to extend and add more support with your own or your
