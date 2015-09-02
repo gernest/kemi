@@ -66,7 +66,7 @@ func (z *Zip) CopyTo(dest string) error {
 		reader = rd
 	case *bytes.Reader:
 		f := z.file.(*bytes.Reader)
-		rd, err := zip.NewReader(f, f.Size())
+		rd, err := zip.NewReader(f, int64(f.Len()))
 		if err != nil {
 			return err
 		}
