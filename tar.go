@@ -51,18 +51,17 @@ func (t *Tar) CopyTo(dest string) error {
 			break
 		}
 		out := filepath.Join(dest, header.Name)
-		info := header.FileInfo()
-		if info.IsDir() {
+		switch header.Typeflag {
+		case tar.TypeDir:
 			continue
+		case tar.TypeReg, tar.TypeRegA:
+			os.MkdirAll(filepath.Dir(out), directoryPerm)
+			err = writeFile(out, reader, os.FileMode(header.Mode))
+			if err != nil {
+				terr = err
+				break
+			}
 		}
-		os.MkdirAll(filepath.Dir(out), directoryPerm)
-
-		err = writeFile(out, reader, info.Mode())
-		if err != nil {
-			terr = err
-			break
-		}
-
 	}
 	return terr
 }
