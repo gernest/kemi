@@ -108,7 +108,7 @@ func listUnpackers(src string) (rst []Unpacker, err error) {
 		if len(c[cLen-2]) <= 3 {
 			inner, ok := registeredUnpackers[c[cLen-2]]
 			if !ok {
-				err = ErrNotSupported
+				//err = ErrNotSupported
 				return
 			}
 			rst = append(rst, inner)
