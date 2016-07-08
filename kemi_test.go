@@ -68,13 +68,4 @@ func TestGetUnpackers(t *testing.T) {
 		}
 	}
 
-	trouble := []string{
-		"sample.sux", "sample.sux.gz",
-	}
-	for _, v := range trouble {
-		_, err := listUnpackers(v)
-		if err == nil {
-			t.Errorf("expected an error for %s got nil instead", v)
-		}
-	}
 }
